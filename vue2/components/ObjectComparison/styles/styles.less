@@ -1,0 +1,74 @@
+.comparison {
+ display: flex;
+ gap: 20px; /* Разрыв между блоками */
+}
+
+.comparison__block {
+ width: 510%;
+}
+
+.comparison__title {
+ font-weight: bold;
+ margin-bottom: 10px;
+}
+
+.comparison__row {
+ display: flex;
+ justify-content: space-between;
+ padding: 5px 0;
+}
+
+.comparison__key {
+ width: 40%; /* Фиксированная ширина для ключей */
+ font-weight: bold;
+}
+
+.comparison__value {
+ width: 60%; /* Фиксированная ширина для значений */
+}
+
+.comparison__controls {
+ margin-top: 20px; /* Отступ сверху для кнопки */
+ text-align: center;
+}
+
+.comparison__button {
+ padding: 10px 20px;
+ font-size: 16px;
+ background-color: #007bff;
+ color: white;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+.comparison__button:hover {
+ background-color: #0056b3;
+}
+
+.comparison__field--changed {
+ background-color: yellow;
+}
+
+.comparison__field--added {
+ background-color: green;
+}
+
+.comparison__field--deleted {
+ background-color: red;
+}
+
+.comparison__field--unchanged {
+ background-color: lightgray;
+ color: gray;
+}
+
+.comparison__field--exception {
+ color: darkgray;
+ text-decoration: line-through;
+}
+
+.comparison__row--hidden {
+ opacity: 0;
+ pointer-events: none;
+}
