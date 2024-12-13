@@ -6,14 +6,12 @@
       <div class="comparison__block">
         <h3 class="comparison__title">Исходный объект</h3>
         <div
-          v-for="key in filteredKeys('original')"
-          :key="'original-' + key"
-          :class="['comparison__row', getClassForField(key, 'original')]"
+          v-for="item in preparedOriginalFields"
+          :key="item.key"
+          :class="['comparison__row', item.class]"
         >
-          <span class="comparison__key">{{ key }}</span>
-          <span class="comparison__value">
-            {{ formatValue(originalObject[key]) }}
-          </span>
+          <span class="comparison__key">{{ item.key }}</span>
+          <span class="comparison__value">{{ item.value }}</span>
         </div>
       </div>
 
@@ -21,21 +19,19 @@
       <div class="comparison__block">
         <h3 class="comparison__title">Новый объект</h3>
         <div
-          v-for="key in filteredKeys('new')"
-          :key="'new-' + key"
-          :class="['comparison__row', getClassForField(key, 'new')]"
+          v-for="item in preparedNewFields"
+          :key="item.key"
+          :class="['comparison__row', item.class]"
         >
-          <span class="comparison__key">{{ key }}</span>
-          <span class="comparison__value">
-            {{ formatValue(newObject[key]) }}
-          </span>
+          <span class="comparison__key">{{ item.key }}</span>
+          <span class="comparison__value">{{ item.value }}</span>
         </div>
       </div>
     </div>
     
     <!-- Кнопка переключения -->
     <div class="comparison__controls">
-      <button class="comparison__button" @click="toggleShowUnchanged">
+      <button class="comparison__button" @click="() => toggleShowUnchanged()">
         {{ showUnchanged ? 'Скрыть поля без изменений' : 'Показать поля без изменений' }}
       </button>
     </div>
@@ -71,6 +67,22 @@ export default {
       const originalKeys = Object.keys(this.originalObject);
       const newKeys = Object.keys(this.newObject).filter(key => !originalKeys.includes(key));
       return [...originalKeys, ...newKeys];
+    },
+    preparedOriginalFields() {
+      // Формируем данные для исходного объекта
+      return this.filteredKeys('original').map(key => ({
+        key,
+        value: this.formatValue(this.originalObject[key]),
+        class: this.getClassForField(key, 'original')
+      }));
+    },
+    preparedNewFields() {
+      // Формируем данные для нового объекта
+      return this.filteredKeys('new').map(key => ({
+        key,
+        value: this.formatValue(this.newObject[key]),
+        class: this.getClassForField(key, 'new')
+      }));
     }
   },
   methods: {
