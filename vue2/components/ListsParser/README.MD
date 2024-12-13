@@ -1,6 +1,6 @@
 # Component ListsParser
 
-<video src="./DocAssets/2024-12-14 00-56-21.mp4" controls width="640"></video>
+[Посмотреть видео](https://disk.yandex.ru/i/TgKBnYRlRNDnng)
 
 
 # Usage Example:
