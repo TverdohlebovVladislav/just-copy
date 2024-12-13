@@ -1,0 +1,48 @@
+.parser {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  &__field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+
+    &--textarea {
+      height: 120px;
+    }
+  }
+
+  &__button {
+    align-self: flex-start;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__result {
+    &-container {
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+
+    &-array {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+}

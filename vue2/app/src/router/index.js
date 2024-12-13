@@ -95,6 +95,16 @@ const routes = [
     name: 'accordionStaysPage',
     component: () => import(/* webpackChunkName: "modal2" */ '../views/AccordionStaysPage.vue')
   },
+  {
+    path: '/comparison-example',
+    name: 'comparisonExample',
+    component: () => import(/* webpackChunkName: "comparisonExample" */ '../views/ComparisonExamplePage.vue')
+  },
+  {
+    path: '/listsParser-example',
+    name: 'listsParserExample',
+    component: () => import(/* webpackChunkName: "listsParserExample" */ '../views/ListsParserExamplePage.vue')
+  },
 ]
 
 const router = new VueRouter({
